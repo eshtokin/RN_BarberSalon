@@ -1,15 +1,17 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  View,
-} from 'react-native';
-import Colors from '../utils/Colors';
+import {SafeAreaView, StyleSheet, Text} from 'react-native';
+import {Provider} from 'react-redux';
+import {store} from '../store/store';
+import CountContainer from './Count';
+import Typography from '../utils/Typography';
 
 function App(): React.JSX.Element {
   return (
-    <SafeAreaView style={styles.container}>
-    </SafeAreaView>
+    <Provider store={store}>
+      <SafeAreaView style={styles.container}>
+        <CountContainer />
+      </SafeAreaView>
+    </Provider>
   );
 }
 
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
 });
 
 export default App;
